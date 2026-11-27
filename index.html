@@ -1,0 +1,283 @@
+
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <meta name="description" content="Sistema de gestión de presupuestos de Perímetros NOA">
+
+    <title>Perímetros NOA | Presupuestos</title>
+
+    <link rel="stylesheet" href="/src/style.css">
+</head>
+
+<body>
+
+    <header>
+        <div>
+            <h1>PERÍMETROS NOA</h1>
+            <p>Sistema de gestión de presupuestos</p>
+        </div>
+    </header>
+
+    <main>
+
+        <!-- PANTALLA PRINCIPAL -->
+        <section id="pantalla-inicio">
+
+            <h2>Panel principal</h2>
+
+            <p>Seleccioná una opción para comenzar.</p>
+
+            <div>
+                <button id="btn-nuevo">
+                    Nuevo presupuesto
+                </button>
+
+                <button id="btn-historial">
+                    Historial de presupuestos
+                </button>
+            </div>
+
+        </section>
+
+
+        <!-- SELECCIÓN DE PRESUPUESTO -->
+        <section id="pantalla-tipos" hidden>
+
+            <h2>Nuevo presupuesto</h2>
+
+            <p>¿Qué tipo de cerco querés presupuestar?</p>
+
+            <div id="contenedor-tipos">
+
+                <button class="btn-tipo" data-tipo="punta-diamante">
+                    Punta diamante
+                </button>
+
+                <button class="btn-tipo" data-tipo="quebracho">
+                    Quebracho
+                </button>
+
+                <button class="btn-tipo" data-tipo="olimpico">
+                    Olímpico
+                </button>
+
+            </div>
+
+            <button id="btn-volver">
+                Volver al inicio
+            </button>
+
+        </section>
+
+
+        <!-- FORMULARIO DE PRESUPUESTO -->
+        <section id="pantalla-formulario" hidden>
+
+        <h2 id="titulo-presupuesto">Nuevo presupuesto</h2>
+
+        <p>Completá los datos del cliente y las características de la obra.</p>
+
+        <!-- DATOS DEL PRESUPUESTO -->
+        <h3>Datos del presupuesto</h3>
+
+        <div>
+            <label for="numero">Número de presupuesto</label>
+            <input id="numero" type="text" disabled
+                placeholder="Se asignará automáticamente">
+        </div>
+
+        <div>
+            <label for="fecha">Fecha</label>
+            <input id="fecha" type="date" readonly>
+        </div>
+
+        <!-- DATOS DEL CLIENTE -->
+        <h3>Datos del cliente</h3>
+
+        <div>
+            <label for="cliente">Nombre y apellido</label>
+            <input id="cliente" type="text"
+                placeholder="Nombre del cliente">
+        </div>
+
+        <div>
+            <label for="telefono">Teléfono</label>
+            <input id="telefono" type="tel"
+                placeholder="Teléfono del cliente">
+        </div>
+
+        <div>
+            <label for="direccion">Dirección de la obra</label>
+            <input id="direccion" type="text"
+                placeholder="Dirección">
+        </div>
+
+        <!-- CARACTERÍSTICAS DEL CERCO -->
+        <h3>Características del cerco</h3>
+
+        <div>
+            <label for="metros">Metros lineales</label>
+            <input id="metros" type="number" min="0" step="0.01"
+                placeholder="Ej.: 70">
+        </div>
+
+        <div>
+            <label for="altura">Altura del cerco (metros)</label>
+            <input id="altura" type="number" min="0" step="0.01"
+                placeholder="Ej.: 2">
+        </div>
+
+        
+
+
+
+<div class="fila-tejido">
+    <label for="tejido">Tipo de tejido</label>
+
+    <select id="tejido">
+        <option value="">Seleccionar</option>
+        <option value="2">2"</option>
+        <option value="2.5">2.5"</option>
+        <option value="3">3"</option>
+    </select>
+
+    <select id="calibre-tejido">
+        <option value="">Calibre</option>
+        <option value="12">Calibre 12</option>
+        <option value="14">Calibre 14</option>
+    </select>
+</div>
+
+
+
+
+        <div>
+            <label for="hilos-puas">Cantidad de hilos de púas</label>
+            <input id="hilos-puas" type="number" min="0" step="1"
+                placeholder="Ej.: 3">
+        </div>
+
+        <div>
+            <label for="postes">Tipo de postes</label>
+            <input id="postes" type="text"
+                placeholder="Ej.: postes olímpicos">
+        </div>
+
+        <div>
+            <label for="distancia-postes">Distancia entre postes (metros)</label>
+            <input id="distancia-postes" type="number" min="0" step="0.01"
+                placeholder="Ej.: 5">
+        </div>
+
+        <div>
+            <label for="porton">¿Incluye portón?</label>
+            <select id="porton">
+                <option value="No">No</option>
+                <option value="Sí">Sí</option>
+            </select>
+        </div>
+
+        <div>
+            <label for="medidas-porton">Medidas del portón</label>
+            <input id="medidas-porton" type="text"
+                placeholder="Ej.: 3 metros de ancho x 2 de alto">
+        </div>
+
+        <!-- COSTOS Y PAGOS -->
+        <h3>Costos y forma de pago</h3>
+
+        <div>
+            <label for="costo-total">Inversión total ($)</label>
+            <input id="costo-total" type="text"
+                inputmode="numeric"
+                placeholder="Ej.: 10.000.000">
+        </div>
+
+        <div>
+            <label for="anticipo">Anticipo del 60% ($)</label>
+            <input id="anticipo" type="text" readonly
+                placeholder="Cálculo automático">
+        </div>
+
+        <div>
+            <label for="saldo-inicial">Saldo después del anticipo ($)</label>
+            <input id="saldo-inicial" type="text" readonly
+                placeholder="Cálculo automático">
+        </div>
+
+        <h4>Pagos semanales</h4>
+
+        <div>
+            <label for="incluye-pagos">¿Incluye pagos semanales?</label>
+            <select id="incluye-pagos">
+                <option value="No">No</option>
+                <option value="Sí">Sí</option>
+            </select>
+        </div>
+
+        <div id="contenedor-pagos-semanales" hidden>
+            <div>
+                <label for="cantidad-pagos">Cantidad de pagos semanales</label>
+                <input id="cantidad-pagos" type="number" min="1" step="1"
+                    placeholder="Ej.: 2">
+            </div>
+
+            <div>
+                <label for="pago-semanal">Monto de cada pago semanal ($)</label>
+                <input id="pago-semanal" type="text"
+                    inputmode="numeric"
+                    placeholder="Ej.: 300.000">
+            </div>
+
+            <div>
+                <label for="total-semanal">Total de pagos semanales ($)</label>
+                <input id="total-semanal" type="text" readonly
+                    placeholder="Cálculo automático">
+            </div>
+        </div>
+
+        <div>
+            <label for="saldo-final">Saldo restante al finalizar ($)</label>
+            <input id="saldo-final" type="text" readonly
+                placeholder="Cálculo automático">
+        </div>
+
+        <button id="btn-guardar">Guardar presupuesto</button>
+        <button id="btn-cancelar">Cancelar</button>
+
+
+        </section>
+
+
+        <!-- HISTORIAL -->
+        <section id="pantalla-historial" hidden>
+
+            <h2>Historial de presupuestos</h2>
+
+            <p>Acá aparecerán los presupuestos registrados.</p>
+
+            <div id="lista-historial">
+                Todavía no hay presupuestos registrados.
+            </div>
+
+            <button id="btn-volver-historial">
+                Volver al inicio
+            </button>
+
+        </section>
+
+    </main>
+
+    <footer>
+        <p>Perímetros NOA - Sistema de presupuestos</p>
+    </footer>
+
+    <script type="module" src="/src/main.js"></script>
+
+</body>
+
+</html>
